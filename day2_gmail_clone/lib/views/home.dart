@@ -1,5 +1,6 @@
 import 'package:day2_gmail_clone/data/class/email.dart';
 import 'package:day2_gmail_clone/views/app/app.drawer.dart';
+import 'package:day2_gmail_clone/views/common/email_fab.dart';
 import 'package:day2_gmail_clone/views/common/email_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_scaffold/responsive_scaffold.dart';
@@ -31,8 +32,9 @@ class _HomePageState extends State<HomePage> {
       itemBuilder: (BuildContext context, int index){
         return EmailListTile(
           item: _emails[index],
-          favoriteChanged: () {},
-        );
+          favoriteChanged: () {
+            _emails[index].favorite = !_emails[index].favorite;
+          });
       },
       detailBuilder: (BuildContext context, int index, bool tablet){
         return DetailsScreen(
@@ -42,6 +44,7 @@ class _HomePageState extends State<HomePage> {
           body: Placeholder(),
         );
       },
+      floatingActionButton: EmailFAB(),
       drawer: AppDrawer(),
       slivers: <Widget>[
         SliverFloatingBar(

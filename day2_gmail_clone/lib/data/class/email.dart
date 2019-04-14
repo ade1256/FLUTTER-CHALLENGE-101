@@ -1,6 +1,6 @@
 class EmailItem {
-  EmailItem({this.avatar,this.title,this.description,this.date,this.favourite});
+  EmailItem({this.avatar,this.title,this.description,this.date,this.favorite});
   final String title,description,avatar;
   final DateTime date;
-  bool favourite = false;
+  bool favorite = false;
 }
